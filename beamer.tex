@@ -1,0 +1,74 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\title{Assignment 10: Papoulis Chapter 6 }
+\author{Dhatri Reddy}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\usepackage{amsmath}
+\usepackage{romannum}
+\usepackage{enumitem}
+\setbeamertemplate{caption}[numbered]{}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+    \begin{block}{Problem 6.19}
+        The random variables x and y are independent with Rayleigh densities $f_{x}\brak{x} = \frac{x}{\alpha^{2}} e^{-\frac{x^{2}}{2\alpha^{2}}}U\brak{x}$ and  $f_{y}\brak{y} = \frac{y}{\beta^{2}} e^{-\frac{y^{2}}{2\beta^{2}}}U\brak{y}$
+        
+        \begin{enumerate}[label=(\alph*)]
+        \item Show that if $z = \frac{x}{y}$, then
+        \begin{align}
+            f_{z}\brak{z} &= \frac{2\alpha^{2}}{\beta^{2}}\frac{z}{{\brak{z^{2} + \frac{\alpha^{2}}{\beta^{2}}}}^2} U\brak{z}
+        \end{align}
+        
+        \item Using \brak{1}, show that for any $k > 0$,
+        $P\cbrak{x \leq ky} = \frac{k^{2}}{k^{2} + \frac{\alpha^{2}}{\beta^{2}}}$
+        \end{enumerate}
+\end{block}
+\end{frame}
+
+\section{Part a}
+\begin{frame}
+\frametitle{Solution}
+\brak{a}
+\begin{align}
+    f_{z}\brak{z} &= \int_{-\infty}^\infty\left|y\right|f_{x}\brak{yz}f_{y}\brak{y}dy\\
+    &= \int_{0}^\infty y\times \frac{yz}{\alpha^{2}} e^{-\frac{yz^{2}}{2\alpha^{2}}}\times \frac{y}{\beta^{2}} e^{-\frac{y^{2}}{2\beta^{2}}}dy\\
+    &= \frac{z}{\alpha^{2}\beta^{2}} \int_{0}^\infty y^{3}e^{-c y^{2}}dy\\
+    &= \frac{z}{2\alpha^{2}\beta^{2}\brak{\frac{z^{2}}{2\alpha^{2}} + \frac{1}{2\beta^{2}}}^{2}}\\
+    &= \frac{2\alpha^{2}}{\beta^{2}}\frac{z}{{\brak{z^{2} + \frac{\alpha^{2}}{\beta^{2}}}}^2}
+\end{align}
+\end{frame}
+
+\section{Part b}
+\begin{frame}
+\frametitle{Solution}
+\brak{b}
+\begin{align}
+    F_{z}\brak{z} &= \int_{0}^z \frac{2\alpha^{2}}{\beta^{2}}\frac{z}{{\brak{z^{2} + \frac{\alpha^{2}}{\beta^{2}}}}^2}dz\\
+    &= \frac{\alpha^{2}}{\beta^{2}} \int_{\frac{\alpha^{2}}{\beta^{2}}}^{\frac{\alpha^{2}}{\beta^{2}} + z^{2}}\frac{dt}{t^{2}}\\
+    &= \frac{z^{2}}{z^{2} + \frac{\alpha^{2}}{\beta^{2}}}\\
+    &= P\cbrak{x \leq zy}
+\end{align}
+
+Hence, proved.
+\end{frame}
+
+\end{document}
